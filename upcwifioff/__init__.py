@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-
 import re
 import time
 from os import path
@@ -7,8 +5,6 @@ from tqdm import tqdm
 from splinter import Browser
 
 host = 'http://192.168.0.1'
-driver_path = path.join(
-    path.dirname(__file__), 'driver/phantomjs-2.1.1-macosx/bin/phantomjs')
 
 urls = {
     'login_page': host + '/',
@@ -74,7 +70,7 @@ def run_splinter(browser, pbar, set_wifi=0):
     tqdm.write('Done!')
 
 
-def main():
+def main(driver_path):
     browser = Browser('phantomjs', executable_path=driver_path)
     try:
         with tqdm(total=10) as pbar:
@@ -83,5 +79,3 @@ def main():
         print e
     finally:
         browser.quit()
-
-main()
