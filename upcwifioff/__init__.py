@@ -70,7 +70,7 @@ def run_splinter(browser, pbar, set_wifi=0):
     tqdm.write('Done!')
 
 
-def main(driver_path):
+def run(driver_path):
     browser = Browser('phantomjs', executable_path=driver_path)
     try:
         with tqdm(total=10) as pbar:

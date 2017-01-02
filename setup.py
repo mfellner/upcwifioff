@@ -4,10 +4,15 @@ from distutils.core import setup
 
 setup(
     name='upcwifioff',
-    version='0.1.0',
+    version='0.1.1',
     author='Maximilian Fellner',
     author_email='max.fellner@gmail.com',
     url='https://github.com/mfellner/upcwifioff',
+    license='MIT',
     packages=['upcwifioff'],
-    license='MIT'
+    entry_points={
+      'console_scripts': [
+          'my_project = upcwifioff.__main__:main'
+      ]
+    }
 )
