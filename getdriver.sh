@@ -1,17 +1,21 @@
 #!/usr/bin/env bash
 
-readonly DRIVER="chromedriver_mac64.zip"
-readonly VERSION="2.27"
+readonly VERSION="2.1.1"
+readonly ARTIFACT="phantomjs-$VERSION-macosx"
+readonly ARCHIVE="$ARTIFACT.zip"
+readonly URL="https://bitbucket.org/ariya/phantomjs/downloads/$ARCHIVE"
+readonly DOWNLOAD_DIR="$PWD/driver"
 
-if [ ! -f "$DRIVER" ]; then
-  wget https://chromedriver.storage.googleapis.com/${VERSION}/${DRIVER}
+mkdir -p ${DOWNLOAD_DIR}
+
+if [ ! -f "$DOWNLOAD_DIR/$ARCHIVE" ]; then
+  wget -P ${DOWNLOAD_DIR} ${URL}
 else
-  echo "Already downloaded $DRIVER"
+  echo "Already downloaded $ARCHIVE"
 fi
 
-if [ ! -f "driver/chromedriver" ]; then
-  mkdir -p driver
-  unzip -d driver ${DRIVER}
+if [ ! -d "$DOWNLOAD_DIR/$ARTIFACT" ]; then
+  unzip -d ${DOWNLOAD_DIR} ${DOWNLOAD_DIR}/${ARCHIVE}
 else
-  echo "Already unpacked $DRIVER"
+  echo "Already unpacked $ARCHIVE"
 fi

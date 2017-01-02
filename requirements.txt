@@ -6,5 +6,6 @@
 #
 autopep8==1.2.4
 pep8==1.7.0
-selenium==3.0.2           # via splinter
+selenium==3.0.2
 splinter==0.7.5
+tqdm==4.10.0
